@@ -1,0 +1,73 @@
+- Yosemite National Park
+- limited observational data, no experiments, and very little time 
+- sampled 2,000 meadows and found 200 that had toads in it
+
+Method:
+- try to predict which are good breeding meadows and which are bad for the toads
+- use meadow attributes (elevation, size, vegetation types, meadow distance, and slope to nearest meadow); 
+  remote sensing 
+  
+- able to extract how many days in a year was a meadow covered in snow from 2001-2007
+  - is it on average a snowy meadow, does snow melt quickly, etc.
+
+- took advantage of landsat data
+
+- created first ever database of 10,000 meadows in the Sierra Nevada*
+  - can be used for lots of other things (not just toads)
+  
+- there were a lot a sampling gaps
+  - calculated the probability of breeding to fill in these gaps using a general linear model
+
+- a deletion of a single meadow would affect numerous meadows in the park
+
+Analysis:
+Toad Breeding = aX + bY + cZ +...+ r(StockUse)
+--> useful for prediction, but not for understanding; this is important
+
+Permutation Approach:
+- infer some sort of causality from observation
+- 100 meadows; 10 with breeding, 10 with horses. About 2/10 have overlap.
+
+- reassigned the horse meadows using the distribution we already had
+- environmental gradient
+  - more breeding and more horses up at the top
+  - the ones on the bottom have very few
+- all else being equal, what does this relationship look like by chance?
+  - shuffle the assignment of horses within a strata
+    - stratified shuffle to make it more representative 
+    
+Results:
+- did not see a negative relationship between breeding and horses after simulating 10,000 permutations
+- weak evidence that the horses help the toads --> not what they were expecting
+
+Potential Errors:
+
+- errors in toad detection
+  - false negatives
+  - BUT there was no bias in terms of number of visits made, etc.
+  - concluded that this error was unlikely to change the relationship between horse meadows and toads
+  
+- errors reported stock use
+  - responses may not be honest, etc.
+  - concluded that the rank order is not necessarily going to change anything; no reason why there should
+    be a systematic bias; it is more likely that EVERYONE is under-reporting, meaning that it wouldn't change
+    the results we are seeing
+
+- errors in stock use location
+
+*these data would be extremeely surprising if the relationship between packstock and toads were negative
+
+NEW APPROACH:
+-------------
+
+introduced fish    -------->    frogs (in lakes)
+
+- it is known that the fish devour the tadpoles
+
+Recap:
+- blended a simple predictive occupancy model with network analysis to 
+  - predict isolated breeding meadows
+  - predict meadows with high park-wide deletion impact
+
+- blended a simple predictuve occupancy model with permutatino approach to 
+  - infer the effect of a rare stressor on a rare species (all else equal)
